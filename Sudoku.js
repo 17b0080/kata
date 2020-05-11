@@ -20,3 +20,17 @@ export class Sudoku {
     return true;
   }
 }
+
+export const validSolution = (board) => {
+  const SIZE = 9;
+  for (let i = 0; i < 3; i += 3) {
+  const a = []
+    for (let y = 3 * i; y < 3 * (i + 1); y += 1) {
+      for (let x = 3 * i; x < 3 * (i + 1); x += 1) {
+         a.push(board[y][x])
+      }
+    }
+    if (a.sort().join("") !== "123456789") return false
+  }
+  return true;
+}
